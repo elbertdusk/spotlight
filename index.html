@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elbert Spotted Without Security, Where Is He Going? | Spotlight Daily</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #eee6d3;
+    --paper-dark: #e2d8c0;
+    --ink: #1d1a15;
+    --muted: #5f574a;
+    --red: #8e1b1b;
+    --rule: #3a342a;
+    --link: #1c3d6b;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 20px; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+  }
+
+  /* Fake browser address bar (stays visible on TV) */
+  .browser-bar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; gap: 14px;
+    background: #cfcfcf; border-bottom: 2px solid #8d8d8d;
+    padding: 8px 18px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 0.8rem;
+  }
+  .browser-bar .dots span { display:inline-block; width:11px; height:11px; border-radius:50%; background:#9a9a9a; margin-right:5px; }
+  .browser-bar .url {
+    flex: 1; background: #fff; border: 1px solid #9d9d9d; border-radius: 4px;
+    padding: 4px 12px; color: #222;
+  }
+  .browser-bar .url b { color: #1e7b34; font-weight: normal; }
+
+  .members-strip {
+    background: #2a251d; color: #d9ceb4;
+    font-size: 0.62rem; font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 24px; display: flex; justify-content: space-between;
+  }
+  .members-strip a { color: #d9ceb4; margin-left: 16px; text-decoration: underline; }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  header.masthead { text-align: center; padding: 22px 0 10px; border-bottom: 4px double var(--rule); }
+  .masthead h1 {
+    font-family: "UnifrakturMaguntia", "Old English Text MT", Georgia, serif;
+    font-weight: 400; font-size: 4.6rem; line-height: 1.05; margin: 0;
+    letter-spacing: 1px;
+  }
+  .masthead .tagline { font-style: italic; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+  .dateline {
+    display: flex; justify-content: space-between;
+    font-size: 0.62rem; font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid var(--rule); padding: 6px 0; color: var(--muted);
+  }
+  nav.sections {
+    display: flex; justify-content: center; gap: 38px;
+    border-bottom: 2px solid var(--rule);
+    padding: 9px 0; font-family: "Playfair Display", Georgia, serif; font-weight: 700; font-size: 0.85rem;
+  }
+  nav.sections span.active { color: var(--red); border-bottom: 3px solid var(--red); }
+
+  .layout { display: grid; grid-template-columns: 1fr 300px; gap: 38px; padding: 26px 0 40px; }
+
+  .badge {
+    display: inline-block; background: var(--red); color: #fff;
+    font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 0.7rem;
+    padding: 2px 10px; letter-spacing: 1px; animation: blink 1.4s steps(2, start) infinite;
+  }
+  @keyframes blink { to { visibility: hidden; } }
+
+  h2.headline {
+    font-family: "Playfair Display", Georgia, serif; font-weight: 900;
+    font-size: 2.7rem; line-height: 1.12; margin: 12px 0 10px;
+  }
+  h2.headline .hl {
+    background: linear-gradient(transparent 0 0) no-repeat left / 0% 100%;
+    transition: background-size 0.9s ease;
+  }
+  h2.headline.selected .hl {
+    background: linear-gradient(rgba(255, 226, 60, 0.75) 0 0) no-repeat left / 100% 100%;
+  }
+  .byline {
+    font-size: 0.68rem; color: var(--muted); font-style: italic;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    padding: 6px 0; margin-bottom: 16px;
+  }
+
+  figure.photo { margin: 0 0 20px; }
+  .photo .frame {
+    border: 1px solid var(--rule); padding: 6px; background: #f8f3e6;
+  }
+  .photo img {
+    display: block; width: 100%; height: auto; max-height: 440px; object-fit: cover;
+    filter: grayscale(0.85) sepia(0.25) contrast(1.05);
+  }
+  .photo .placeholder {
+    display: none; height: 340px; align-items: center; justify-content: center;
+    background: #cfc5ac; color: #5c5446; font-family: Arial, sans-serif; font-size: 0.8rem; text-align: center;
+  }
+  .photo figcaption { font-size: 0.62rem; font-style: italic; color: var(--muted); padding-top: 6px; }
+
+  .article p { margin: 0 0 1em; text-align: justify; hyphens: auto; }
+  .article p.lead::first-letter {
+    font-family: "Playfair Display", Georgia, serif; font-weight: 900;
+    float: left; font-size: 4.2rem; line-height: 0.82; padding: 6px 10px 0 0; color: var(--red);
+  }
+  .article .pull {
+    border-top: 3px double var(--rule); border-bottom: 3px double var(--rule);
+    font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 1.15rem;
+    padding: 12px 8px; margin: 22px 0; text-align: center;
+  }
+
+  aside .box { border: 2px solid var(--rule); background: var(--paper-dark); padding: 14px 16px; margin-bottom: 24px; }
+  aside h3 {
+    font-family: "Playfair Display", Georgia, serif; font-size: 0.95rem; margin: 0 0 10px;
+    border-bottom: 2px solid var(--rule); padding-bottom: 4px;
+  }
+  aside ol { margin: 0; padding-left: 1.2em; font-size: 0.72rem; line-height: 1.45; }
+  aside ol li { margin-bottom: 10px; color: var(--link); text-decoration: underline; }
+  aside .small { font-size: 0.62rem; color: var(--muted); font-family: Arial, sans-serif; }
+
+  /* Forum-style comments */
+  .comments { border-top: 4px double var(--rule); padding: 18px 0 40px; }
+  .comments h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; margin: 0 0 14px; }
+  .post {
+    display: grid; grid-template-columns: 130px 1fr; border: 1px solid var(--rule);
+    background: #f6f0e0; margin-bottom: 14px;
+  }
+  .post .user {
+    background: var(--paper-dark); border-right: 1px solid var(--rule);
+    padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 0.6rem; line-height: 1.5;
+  }
+  .post .user b { display: block; font-size: 0.75rem; color: var(--link); }
+  .post .avatar {
+    width: 54px; height: 54px; background: #8c8470; color: #fff; display: flex;
+    align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 6px;
+  }
+  .post .body { padding: 10px 16px; font-size: 0.8rem; }
+  .post .meta { font-family: Arial, sans-serif; font-size: 0.58rem; color: var(--muted); border-bottom: 1px dotted var(--muted); margin-bottom: 6px; padding-bottom: 3px; }
+  .post .body p { margin: 0; line-height: 1.5; }
+
+  footer { background: #2a251d; color: #bfb49a; text-align: center; font-size: 0.6rem; font-family: Arial, sans-serif; padding: 18px; }
+
+
+  @media (max-width: 900px) {
+    html { font-size: 16px; }
+    .layout { grid-template-columns: 1fr; }
+    .masthead h1 { font-size: 3rem; }
+    .post { grid-template-columns: 90px 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .badge { animation: none; } }
+</style>
+</head>
+<body>
+
+<div class="members-strip">
+  <div>Members Forum &middot; 12,408 readers online</div>
+  <div>Welcome, Guest <a href="#">Log in</a><a href="#">Register</a></div>
+</div>
+
+<div class="wrap">
+  <header class="masthead">
+    <h1>Spotlight Daily</h1>
+    <div class="tagline">Always Behind the Scenes</div>
+  </header>
+  <div class="dateline">
+    <span>Saturday, October 3, 2026</span>
+    <span>Entertainment &amp; Gossip Edition</span>
+    <span>Vol. 14 &mdash; No. 276</span>
+  </div>
+  <nav class="sections">
+    <span>Home</span><span>Celebrity</span><span>Gossip</span><span class="active">Exclusive</span>
+  </nav>
+
+  <div class="layout">
+    <main>
+      <article class="article">
+        <span class="badge">EXCLUSIVE</span>
+        <h2 class="headline" id="headline"><span class="hl">Elbert Spotted Without Security, Where Is He Going?</span></h2>
+        <div class="byline">By Spotlight Staff &nbsp;|&nbsp; Posted Oct 3, 2026 &nbsp;|&nbsp; 148 comments</div>
+
+        <p class="lead">Rising actor Elbert was caught on camera walking alone downtown, with no manager or bodyguard in sight.</p>
+        <p>A source says he looked relaxed and stopped for a drink before continuing on his way.</p>
+        <div class="pull">&ldquo;He had no idea we were watching.&rdquo;</div>
+        <p>As of publication, Elbert&rsquo;s management has not issued a statement.</p>
+      </article>
+
+      <section class="comments">
+        <h3>Reader Discussion (148)</h3>
+
+        <div class="post">
+          <div class="user"><div class="avatar">M</div><b>moviebuff_88</b>Senior Member<br>Posts: 2,310<br>Joined: Mar 2019</div>
+          <div class="body"><div class="meta">#1 &middot; Oct 3, 2026, 4:12 PM</div><p>Why is Elbert alone?</p></div>
+        </div>
+
+        <div class="post">
+          <div class="user"><div class="avatar">R</div><b>redcarpet_rita</b>Member<br>Posts: 874<br>Joined: Nov 2021</div>
+          <div class="body"><div class="meta">#2 &middot; Oct 3, 2026, 4:30 PM</div><p>Where did this photo come from?</p></div>
+        </div>
+
+        <div class="post">
+          <div class="user"><div class="avatar">N</div><b>nightowl_news</b>Junior Member<br>Posts: 96<br>Joined: Jan 2025</div>
+          <div class="body"><div class="meta">#3 &middot; Oct 3, 2026, 5:02 PM</div><p>Someone is clearly following him. Keep the updates coming.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <aside>
+      <div class="box">
+        <h3>Trending Now</h3>
+        <ol>
+          <li>Elbert&rsquo;s Casual Weekend Style</li>
+          <li>Who Is Behind the Lens?</li>
+          <li>Filming Schedule Leaked</li>
+          <li>Ten Stars Who Hate Being Photographed</li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>Got a Tip?</h3>
+        <p class="small" style="margin:0">Send us your sightings and photos. Our editors read every message. All sources are kept anonymous.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>&copy; 2026 Spotlight Daily. All rights reserved. &nbsp;|&nbsp; About &nbsp;|&nbsp; Contact &nbsp;|&nbsp; Privacy &nbsp;|&nbsp; Forum Rules</footer>
+
+<script>
+  /* ====== EASY SETTINGS (change these numbers if needed) ====== */
+  var HIGHLIGHT_MS    = 3300;   // when the headline gets highlighted
+  var SCROLL_START_MS = 5500;   // when the page starts scrolling down
+  var SCROLL_SPEED    = 45;     // pixels per second (lower = slower)
+  /* ============================================================ */
+
+  var headline = document.getElementById('headline');
+
+  setTimeout(function () { headline.classList.add('selected'); }, HIGHLIGHT_MS);
+
+  setTimeout(function () {
+    var last = null;
+    var pos = window.scrollY;
+    function step(t) {
+      if (last === null) last = t;
+      var dt = (t - last) / 1000; last = t;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if (pos < max) {
+        pos += SCROLL_SPEED * dt;
+        window.scrollTo(0, pos);
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }, SCROLL_START_MS);
+
+  /* Click anywhere (or press R) to reset the page for another take */
+  document.addEventListener('click', function () { location.reload(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'r' || e.key === 'R') location.reload(); });
+</script>
+</body>
+</html>
