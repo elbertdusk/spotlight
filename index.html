@@ -236,36 +236,5 @@
 
 <footer>&copy; 2026 Spotlight Daily. All rights reserved. &nbsp;|&nbsp; About &nbsp;|&nbsp; Contact &nbsp;|&nbsp; Privacy &nbsp;|&nbsp; Forum Rules</footer>
 
-<script>
-  /* ====== EASY SETTINGS (change these numbers if needed) ====== */
-  var HIGHLIGHT_MS    = 3300;   // when the headline gets highlighted
-  var SCROLL_START_MS = 5500;   // when the page starts scrolling down
-  var SCROLL_SPEED    = 45;     // pixels per second (lower = slower)
-  /* ============================================================ */
-
-  var headline = document.getElementById('headline');
-
-  setTimeout(function () { headline.classList.add('selected'); }, HIGHLIGHT_MS);
-
-  setTimeout(function () {
-    var last = null;
-    var pos = window.scrollY;
-    function step(t) {
-      if (last === null) last = t;
-      var dt = (t - last) / 1000; last = t;
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      if (pos < max) {
-        pos += SCROLL_SPEED * dt;
-        window.scrollTo(0, pos);
-        requestAnimationFrame(step);
-      }
-    }
-    requestAnimationFrame(step);
-  }, SCROLL_START_MS);
-
-  /* Click anywhere (or press R) to reset the page for another take */
-  document.addEventListener('click', function () { location.reload(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'r' || e.key === 'R') location.reload(); });
-</script>
 </body>
 </html>
